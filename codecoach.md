@@ -1,55 +1,142 @@
 # CodeCoach Documentation
 
-Welcome to **CodeCoach**, your per‑repo guide for architecture decisions, style rules, and best practices. Treat this as your “single source of truth” for anything non‑code.
+Welcome to **CodeCoach Pro**, your comprehensive guide for architecture decisions, style rules, best practices, and team workflows. This enhanced version serves as your "single source of truth" for all project documentation.
 
 ---
 
 ## 1. Project Overview  
-**CodeCoach** is a lightweight service that  
+**CodeCoach Pro** is an enterprise-grade documentation service that:
 - 🧠 Ingests structured documentation into a Neo4j graph  
-- 💬 Powers LLM‑backed Q&A on architecture, style, and workflows  
-- 🔄 Supports continuous updates via “episodes” (e.g. codecoach.md entries)
+- 💬 Powers advanced LLM-backed Q&A on architecture, style, and workflows  
+- 🔄 Supports real-time updates via "episodes"
+- 🔍 Provides semantic search across all documentation
+- 📊 Generates documentation analytics and insights
+- 🤝 Facilitates team collaboration through shared knowledge
 
 ---
 
-## 2. Architecture Snapshot  
-[ GitHub App ] → [ CodeCoach Ingest Service ] → [ Neo4j Graph Database ] ↓ [ LLM Assistant ]
+## 2. Architecture Overview  
+```mermaid
+graph TD
+    A[GitHub App] --> B[CodeCoach Pro Service]
+    B --> C[Neo4j Graph Database]
+    C --> D[LLM Assistant]
+    D --> E[Analytics Engine]
+    E --> F[Team Dashboard]
+```
 
-yaml
-Copy
-Edit
-- **Ingest** runs on Python 3.13+, uses Graphiti for chunking + entity extraction.  
-- **Neo4j** holds the doc graph: nodes = concepts, edges = relationships.  
-- **Assistant** queries the graph to ground LLM replies.
-
----
-
-## 3. File Structure  
-/ ├── demo_ingest.py # main ingest script ├── codecoach.md # this file ├── requirements.txt # pip dependencies └── README.md # high‑level project intro
-
-markdown
-Copy
-Edit
-
----
-
-## 4. Coding Standards  
-
-- **Python**  
-  - Use **Black** for formatting (88‑char line length).  
-  - Type hint everything; run `mypy .` before PR.  
-- **Markdown**  
-  - Headings use ATX style (`## Section Title`).  
-  - Wrap lines at ~80 columns.  
-- **Git**  
-  - Commit messages follow Conventional Commits:  
-    - `feat: …`, `fix: …`, `docs: …`, `refactor: …`
+- **Ingest Service**: Built on Python 3.10+, leverages Langchain for advanced chunking + entity extraction
+- **Neo4j Database**: Enterprise-grade graph storage with:
+  - Automated backups
+  - High availability clustering
+  - Real-time replication
+- **AI Assistant**: Uses GPT-4 with RAG for context-aware responses
+- **Analytics**: Tracks documentation health and usage patterns
 
 ---
 
-## 5. Ingesting New Episodes  
+## 3. Project Structure  
+/
+├── src/
+│ ├── ingest/
+│ │ ├── init.py
+│ │ ├── processor.py
+│ │ └── validator.py
+│ ├── api/
+│ │ ├── init.py
+│ │ └── routes.py
+│ └── utils/
+│ ├── init.py
+│ └── helpers.py
+├── tests/
+│ ├── test_ingest.py
+│ └── test_api.py
+├── docs/
+│ └── codecoach.md
+├── pyproject.toml
+└── README.md
 
-1. Add or update a section in `codecoach.md`.  
-2. Run:
+
+---
+
+## 4. Development Standards  
+
+### Python Standards
+- Use **RED** for formatting (100-char line length)
+- Strict type hints with `pyright` validation
+- 100% test coverage requirement
+- Docstring format: Google style
+
+### Documentation Standards
+- All modules must have documentation
+- API endpoints require OpenAPI specs
+- Markdown files:
+  - Use ATX headings
+  - No line length restrictions
+  - Include table of contents
+
+### Git Workflow
+- Branch naming: `type/description`
+  - Types: `feature`, `bugfix`, `hotfix`, `docs`
+- Commits must be signed
+- PRs require:
+  - 2 approvals
+  - Passing CI/CD
+  - No security vulnerabilities
+
+---
+
+## 5. Deployment Process
+
+1. **Development**
    ```bash
-   python3 demo_ingest.py <owner/repo> codecoach.md
+   poetry install
+   poetry run pre-commit install
+   ```
+
+2. **Testing**
+   ```bash
+   poetry run pytest --cov
+   poetry run pyright
+   ```
+
+3. **Deployment**
+   ```bash
+   docker compose up -d
+   ```
+
+---
+
+## 6. Security Guidelines
+
+- All secrets in HashiCorp Vault
+- Regular dependency audits
+- SAST scanning in CI/CD
+- Monthly security reviews
+
+---
+
+## 7. Monitoring & Analytics
+
+- Prometheus metrics
+- Grafana dashboards
+- Daily health checks
+- Weekly usage reports
+
+---
+
+## 8. Team Workflows
+
+### Documentation Updates
+1. Create feature branch
+2. Update relevant docs
+3. Run validation:
+   ```bash
+   poetry run python -m src.ingest.validator
+   ```
+4. Submit PR for review
+
+### Code Reviews
+- Maximum 200 lines per review
+- 48-hour SLA for initial review
+- Use conventional comments
