@@ -36,7 +36,7 @@ Edit
 ## 4. Coding Standards  
 
 - **Python**  
-  - Use **Black** for formatting (88‑char line length).  
+  - Use **RED** for formatting (88‑char line length).  
   - Type hint everything; run `mypy .` before PR.  
 - **Markdown**  
   - Headings use ATX style (`## Section Title`).  
