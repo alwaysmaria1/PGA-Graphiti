@@ -353,14 +353,14 @@ files = [
 
 [[package]]
 name = "graphiti-core"
-version = "0.10.3"
+version = "0.10.5"
 description = "A temporal graph building library"
 optional = false
 python-versions = "<4,>=3.10"
 groups = ["main"]
 files = [
-    {file = "graphiti_core-0.10.3-py3-none-any.whl", hash = "sha256:9d8b9a8a881a0369e2e1ca4aa8295bd3c1ebc0f3108b144789b242bce45f38a7"},
-    {file = "graphiti_core-0.10.3.tar.gz", hash = "sha256:4fca0e597b570fc87238d918831832b1e41647a0656e623ecd8b8e58c0c8e39f"},
+    {file = "graphiti_core-0.10.5-py3-none-any.whl", hash = "sha256:73172818ce696c0ab3ece827099522924e61a918d6f80e665927a0724a13d941"},
+    {file = "graphiti_core-0.10.5.tar.gz", hash = "sha256:f118c3d7a504fa2dcd17ca8795c0eed77ad8ff787e35fbe73c94ec059e2ec543"},
 ]
 
 [package.dependencies]
@@ -625,14 +625,14 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.75.0"
+version = "1.76.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "openai-1.75.0-py3-none-any.whl", hash = "sha256:fe6f932d2ded3b429ff67cc9ad118c71327db32eb9d32dd723de3acfca337125"},
-    {file = "openai-1.75.0.tar.gz", hash = "sha256:fb3ea907efbdb1bcfd0c44507ad9c961afd7dce3147292b54505ecfd17be8fd1"},
+    {file = "openai-1.76.0-py3-none-any.whl", hash = "sha256:a712b50e78cf78e6d7b2a8f69c4978243517c2c36999756673e07a14ce37dc0a"},
+    {file = "openai-1.76.0.tar.gz", hash = "sha256:fd2bfaf4608f48102d6b74f9e11c5ecaa058b60dad9c36e409c12477dfd91fb2"},
 ]
 
 [package.dependencies]
@@ -1099,5 +1099,5 @@ files = [
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.13,<4"
-content-hash = "e4c0419f718b198035d599197e4f2c4c85b4105739899579ae207b5208947879"
+python-versions = ">=3.13,<4.0"
+content-hash = "2079aafb1dcf257ad077b6ef57aed46304abe6e148516d6b35cf440a76728c0b"
