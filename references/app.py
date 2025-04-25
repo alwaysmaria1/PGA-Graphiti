@@ -13,7 +13,7 @@ logging.getLogger("neo4j").setLevel(logging.INFO)
 
 # Now import the rest
 from flask import Flask, request, jsonify
-from services import  query_service
+from src.search import  query_service
 
 app = Flask(__name__)
 

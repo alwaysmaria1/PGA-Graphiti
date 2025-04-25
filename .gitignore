@@ -6,6 +6,8 @@ node_modules/
 # Byte-compiled files
 __pycache__/
 *.py[cod]
+src/__pycache__/*
+
 
 # Expo
 .expo/
@@ -41,3 +43,7 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+.cache/
+poetry.lock
+
